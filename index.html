@@ -272,6 +272,12 @@
   .work dt { color: #77777d; }
   .work .contrib { margin-top: 16px; display: flex; gap: 10px; align-items: flex-start; font-size: 16px; color: #e6e6ea; }
   .work .contrib::before { content: "✦"; color: var(--accent); }
+  .doc-link { display: inline-flex; align-items: center; gap: 12px; margin-top: 18px; padding: 10px 16px 10px 10px; border: 1px solid var(--night-line); border-radius: 14px; background: rgba(255,255,255,.04); color: #f2f2f2; transition: border-color .3s, background .3s, transform .3s var(--ease); }
+  .doc-link:hover { border-color: var(--accent); background: rgba(255,255,255,.08); transform: translateY(-2px); }
+  .doc-link .doc-ico { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 10px; background: var(--accent); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: .04em; }
+  .doc-link b { display: block; font-size: 14.5px; font-weight: 600; }
+  .doc-link small { display: block; font-size: 12px; color: #8d8d93; }
+  .doc-link i { font-style: normal; color: var(--accent); margin-left: 6px; }
 
   @media (max-width: 900px) {
     .work-grid, .work:nth-child(even) .work-grid { grid-template-columns: 1fr; }
@@ -703,7 +709,7 @@
  */
 const PROJECTS = [
   {
-    id: "lune", title: "LUNE 뤼느", en: "AI-Generated Brand Film",
+    id: "lune", doc: { file: "assets/docs/work-lune.pdf", name: "뤼느 작품 소개서", size: "16MB" }, title: "LUNE 뤼느", en: "AI-Generated Brand Film",
     category: "개인 프로젝트 · AI 향수 브랜드 필름",
     thumb: "assets/img/lune_thumb.jpg", drive: "1cfiLxJR2rF3qVoJvR58RCMrA4PLX-tRb",
     dl: { file: "assets/video/jeong-hajun-01-lune.mp4", name: "정하준_LUNE 뤼느.mp4", size: "83MB", compressed: true }, duration: "0:48",
@@ -721,7 +727,7 @@ const PROJECTS = [
     ],
   },
   {
-    id: "green", title: "더 좋은 tomorrow", en: "Green Remodeling 42s AI Film",
+    id: "green", doc: { file: "assets/docs/work-green.pdf", name: "더 좋은 tomorrow 작품 소개서", size: "17MB" }, title: "더 좋은 tomorrow", en: "Green Remodeling 42s AI Film",
     category: "제6회 그린리모델링 챌린지 · 42초 AI 영화제",
     thumb: "assets/img/pf_green_thumb.jpg", drive: "1-KP2zoCrTK-RX2rJxreSkPmlWYaWAcFI",
     dl: { file: "assets/video/jeong-hajun-02-green.mp4", name: "정하준_더 좋은 tomorrow.mp4", size: "73MB", compressed: true }, duration: "0:40",
@@ -739,7 +745,7 @@ const PROJECTS = [
     ],
   },
   {
-    id: "yeoju", title: "세종의 숨결, 여주의 결", en: "Yeoju AI Music Video",
+    id: "yeoju", doc: { file: "assets/docs/work-yeoju.pdf", name: "여주 작품 소개서", size: "2.5MB" }, title: "세종의 숨결, 여주의 결", en: "Yeoju AI Music Video",
     category: "2026 여주 AI 뮤직비디오 공모전",
     thumb: "assets/img/yeoju_thumb.jpg",
     drive: "1MOZjYQH6tV4rC4FMATkwo2r5g2UJRyhF",
@@ -752,13 +758,13 @@ const PROJECTS = [
     ],
     contrib: "레퍼런스 기반 AI 이미지·영상 생성과 영상편집 담당",
     cuts: [
-      ["assets/img/image4.jpg", "무드보드 · 먹 100% → 색 90%"],
-      ["assets/img/image5.jpg", "스토리보드 흐름 (0:00 ~ 2:32)"],
-      ["assets/img/image6.jpg", "최종 결과물 캡처"],
+      ["assets/img/cut_yeoju_1.jpg", "수묵 · 먹 100% — 종대의 등장"],
+      ["assets/img/cut_yeoju_2.jpg", "담채 · 여주 전통시장과 특산물"],
+      ["assets/img/cut_yeoju_3.jpg", "채색 · 남한강 황포돛배와 낙화 축제"],
     ],
   },
   {
-    id: "memory", title: "기억의 방", en: "ACC Memory Archive Film",
+    id: "memory", doc: { file: "assets/docs/work-memory.pdf", name: "기억의 방 작품 소개서", size: "4.9MB" }, title: "기억의 방", en: "ACC Memory Archive Film",
     category: "2026 ACC 민주인권평화 영상(+AI)콘텐츠 공모전",
     thumb: "assets/img/memory_thumb.jpg", drive: "1gkbLVnm9ZwFukKFeb8A_B5CSLZqb3JQ4",
     dl: { file: "assets/video/jeong-hajun-04-memory.mp4", name: "정하준_기억의 방.mp4", size: "90MB", compressed: true }, duration: "3:47", award: "본선 진출",
@@ -776,7 +782,7 @@ const PROJECTS = [
     ],
   },
   {
-    id: "bio", title: "Bio Evolution", en: "Inspired by Gentle Monster · Eyewear Collection",
+    id: "bio", doc: { file: "assets/docs/work-gentlemonster.pdf", name: "젠틀몬스터 작품 소개서", size: "15MB" }, title: "Bio Evolution", en: "Inspired by Gentle Monster · Eyewear Collection",
     category: "GENTLE MONSTER 레퍼런스 · 아이웨어 컬렉션 제안",
     thumb: "assets/img/bio_thumb.jpg", drive: "1z-UH9SFy57f8mZo57c-OyMcgVaNNv1R1",
     dl: { file: "assets/video/jeong-hajun-05-bio.mp4", name: "정하준_Bio Evolution.mp4", size: "64MB", compressed: false }, duration: "0:49",
@@ -788,13 +794,13 @@ const PROJECTS = [
     ],
     contrib: "Cinema 4D 3D 모델링과 광고 영상 편집 담당",
     cuts: [
+      ["assets/img/cut_bio_1.jpg", "변태 · 거미줄 속 고치"],
       ["assets/img/image12.jpg", "애벌레 실루엣 · 제품샷"],
-      ["assets/img/image13.jpg", "광고 스토리보드"],
-      ["assets/img/image10.jpg", "컨셉 스케치 · 컬러 시스템"],
+      ["assets/img/cut_bio_3.jpg", "진화 · 나뭇가지 위 아이웨어"],
     ],
   },
   {
-    id: "ocean", title: "Ocean Evolution", en: "Inspired by Gentle Monster · Eyewear Collection",
+    id: "ocean", doc: { file: "assets/docs/work-gentlemonster.pdf", name: "젠틀몬스터 작품 소개서", size: "15MB" }, title: "Ocean Evolution", en: "Inspired by Gentle Monster · Eyewear Collection",
     category: "GENTLE MONSTER 레퍼런스 · 아이웨어 컬렉션 제안",
     thumb: "assets/img/ocean_thumb.jpg", drive: "1wsJokzEZBspv1CQ2Iz58sQZRktK_8Ko8",
     dl: { file: "assets/video/jeong-hajun-06-ocean.mp4", name: "정하준_Ocean Evolution.mp4", size: "48MB", compressed: false }, duration: "0:30",
@@ -806,8 +812,9 @@ const PROJECTS = [
     ],
     contrib: "Cinema 4D 3D 모델링과 광고 영상 편집 담당",
     cuts: [
+      ["assets/img/cut_ocean_1.jpg", "심해 · 가오리 떼의 실루엣"],
       ["assets/img/image3.jpg", "가오리 실루엣 · 제품샷"],
-      ["assets/img/image11.jpg", "광고 스토리보드"],
+      ["assets/img/cut_ocean_3.jpg", "안착 · 산호초 위 아이웨어"],
     ],
   },
 ];
@@ -850,9 +857,9 @@ $("#stack").innerHTML = PROJECTS.map((p, i) => `
           </div>
         </div>
         ${p.dl.compressed ? `<p class="dl-note"><b>ⓘ</b>다운로드 파일은 용량을 줄인 1080p 압축본이라 원본보다 화질이 다소 낮습니다.</p>` : ""}
-        <div class="cuts ${p.cuts.length === 2 ? "two" : ""}">
+        ${p.cuts.length ? `<div class="cuts ${p.cuts.length === 2 ? "two" : ""}">
           ${p.cuts.map(([src, cap], j) => `<button class="cut" data-src="${src}" data-cap="${esc(cap)}" aria-label="${esc(cap)} 크게 보기"><img src="${src}" alt="${esc(cap)}" loading="lazy"><span>CUT ${pad(j + 1)}</span></button>`).join("")}
-        </div>
+        </div>` : ""}
       </div>
       <div class="info">
         <h3>${esc(p.title)}<small>${esc(p.en)}</small></h3>
@@ -860,6 +867,7 @@ $("#stack").innerHTML = PROJECTS.map((p, i) => `
         <div class="desc">${p.desc.map(d => `<p>${esc(d).replace(/\n/g, ' <br class="lb">')}</p>`).join("")}</div>
         <dl>${p.meta.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>
         <p class="contrib">${esc(p.contrib)}</p>
+        ${p.doc ? `<a class="doc-link" href="${p.doc.file}" target="_blank" rel="noopener"><span class="doc-ico">PDF</span><span><b>${esc(p.doc.name)}</b><small>소개 자료 보기 · ${p.doc.size}</small></span><i>↗</i></a>` : ""}
       </div>
     </div>
   </article>
